@@ -9,11 +9,14 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-sm bg-success justify-content-center">
-        <form action="" class="col-md-3">
-            <input type="search" class="form-control" placeholder="Search" aria-label="Search" class="search-bar">
-
+    <nav class="navbar navbar-expand-sm justify-content-center">
+        <form action="requete/lister_livres.php" method="get" class="col-md-4">
+            <input class="nosubmit" type="search" placeholder="Rechercher un livre par son auteur" name="author">
         </form>
+        <button class="panier">
+            <img src="images/icon/shopping_cart_1_fill.png" alt="shopping icon">
+            Panier
+        </button>
     </nav>
 
 </body>
