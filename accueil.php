@@ -13,5 +13,9 @@
         require("utilitaires/entete.html");
         require("utilitaires/message_important.html");
     ?>
+
+    <h1 class="dernier-emprunt">
+        Dernier emprunt
+    </h1>
 </body>
 </html>

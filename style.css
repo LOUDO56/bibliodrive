@@ -63,3 +63,15 @@ footer p {
     background-color: #258cb8;
     box-shadow: 0 0 50px #2eaae060;
 }
+
+
+/* Accueil */
+
+
+.dernier-emprunt{
+    font-size: 48px;
+    color: #2495C6;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 50px;
+}

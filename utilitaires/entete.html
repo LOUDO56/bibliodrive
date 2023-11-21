@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bibliodrive</title>
-</head>
-<body>
-
-    <nav class="navbar navbar-expand-sm justify-content-center">
-        <form action="requete/lister_livres.php" method="get" class="col-md-4">
-            <input class="nosubmit" type="search" placeholder="Rechercher un livre par son auteur" name="author">
-        </form>
-        <button class="panier">
-            <img src="images/icon/shopping_cart_1_fill.png" alt="shopping icon">
-            Panier
-        </button>
-    </nav>
-
-</body>
-</html>
+<nav class="navbar navbar-expand-sm justify-content-center">
+    <form action="requete/lister_livres.php" method="get" class="col-md-4">
+        <input class="nosubmit" type="search" placeholder="Rechercher un livre par son auteur" name="author" autocomplete="off">
+    </form>
+    <button class="panier">
+        <img src="images/icon/shopping_cart_1_fill.png" alt="shopping icon">
+        Panier
+    </button>
+</nav>
