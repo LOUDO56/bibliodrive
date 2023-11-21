@@ -13,6 +13,24 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #F9F9F9;
+    min-height: 100vh;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    background-color: #0B1724;
+    color: white;
+
+}
+
+footer p {
+    margin-bottom: 0 !important;
+    font-size: 14px;
+    font-weight: 300;
 }
 
 /* Entete HTML */
