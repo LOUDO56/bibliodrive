@@ -13,6 +13,8 @@
                 
                 $utilisateur = $requete->fetch();
 
+                if($utilisateur->profil == "admin") $_SESSION["adminUser"] = TRUE;
+
                 if($utilisateur) { // Si ça correspond, l'utilisateur est connecté
                     $_SESSION["email"] = $_POST["email"];
                     $_SESSION["connected"] = TRUE;
@@ -37,6 +39,8 @@
                 echo '<p class="email-set">'.$utilisateur->mel.'</p>';
                 if($utilisateur->profil == "client"){
                     echo '<p class="adresse-set">'.$utilisateur->adresse.'</p>';
+                    $_SESSION["adminUser"] = TRUE;
+                    echo $_SESSION["adminUser"];
                 } else {
                     echo '<p class="admin-account">Vous êtes Administrateur</p>';
 
@@ -54,17 +58,19 @@
                 <p class="titre-form">Connexion</p>
                 
                 <form method="post" class="form-login">';
-                    if(isset($email_renseigne)) // Pour éviter que l'utilisateur retape sans cesse son email en cas d'echec
-                        echo '<input class="input-login" type="email" name="email" id="email" placeholder="Email" autocomplete="off" value="'.$email_renseigne.'"required>';
-                    else 
-                        echo '<input class="input-login" type="email" name="email" id="email" placeholder="Email" autocomplete="off" required>';
+
+                if(isset($email_renseigne)) // Pour éviter que l'utilisateur retape sans cesse son email en cas d'echec
+                    echo '<input class="input-login" type="email" name="email" id="email" placeholder="Email" autocomplete="off" value="'.$email_renseigne.'"required>';
+                else 
+                    echo '<input class="input-login" type="email" name="email" id="email" placeholder="Email" autocomplete="off" required>';
                     
                 echo '
                     <input class="input-login" type="password" name="mdp" id="mdp" placeholder="Mot de passe" autocomplete="off" required>';
-                    if(isset($erreur_connexion)) echo '<p class="erreur-connexion">Votre email ou de passe est incorrect.</p>';
+                    if(isset($erreur_connexion)) echo '<p class="erreur-connexion">Votre email ou mot de passe est incorrect.</p>';
+                    
                 echo '
-                <input class="submit-login" type="submit" value="Se connecter">
-                </form>';    
+                    <input class="submit-login" type="submit" value="Se connecter">
+                    </form>';    
             }
         ?>
     </div>    

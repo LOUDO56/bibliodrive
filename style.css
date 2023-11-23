@@ -80,9 +80,6 @@ footer p {
 
 .container-pos{
     position: absolute;
-    /* right: 0;
-    top: 17em;
-    max-width: 15em; */
     height: 100%;
     width: 100%;
     display: flex;
@@ -146,7 +143,7 @@ footer p {
 
 .panier:hover, .submit-login:hover{
     background-color: #258cb8;
-    box-shadow: 0 0 50px #2eaae060;
+    box-shadow: 0 0 50px #2eaae034;
 }
 
 .admin-account{

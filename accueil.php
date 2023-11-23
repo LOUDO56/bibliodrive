@@ -8,10 +8,14 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-        require("utilitaires/authentification.php");
-        require("utilitaires/entete.html");
-    ?>
+    <header>
+        <?php
+            require("utilitaires/authentification.php");
+            
+            if(isset($_SESSION["adminUser"])) require("utilitaires/admin-header.html");
+            else require("utilitaires/entete.html");
+        ?>
+    </header>
     <h1 class="dernier-emprunt">
         Dernier emprunt
     </h1>
