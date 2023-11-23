@@ -9,13 +9,15 @@
 </head>
 <body>
     <?php
-
+        require("utilitaires/authentification.php");
         require("utilitaires/entete.html");
-        require("utilitaires/message_important.html");
     ?>
-
     <h1 class="dernier-emprunt">
         Dernier emprunt
     </h1>
+    <?php
+        require("utilitaires/message_important.html");
+    ?>
+
 </body>
 </html>
