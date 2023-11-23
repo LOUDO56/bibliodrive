@@ -13,11 +13,11 @@
                 
                 $utilisateur = $requete->fetch();
 
-                if($utilisateur) {
+                if($utilisateur) { // Si ça correspond, l'utilisateur est connecté
                     $_SESSION["email"] = $_POST["email"];
                     $_SESSION["connected"] = TRUE;
                 }
-                else{
+                else{ // Sinon, on fait en sorte de lui faire savoir que son mail ou mdp est mauvais.
                     $erreur_connexion = TRUE;
                     $email_renseigne = $_POST["email"];
                 }
