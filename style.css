@@ -5,6 +5,20 @@
     --button-color: #1C7196;
 }
 
+.button-general{
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    transition: 150ms ease;
+    background-color: var(--button-color);
+    border-radius: 10px;
+}
+
+.button-general:hover {
+    background-color: #258cb8;
+    box-shadow: 0 0 50px #2eaae034;
+}
+
 *{
     padding: 0;
     margin: 0;
@@ -62,6 +76,33 @@ footer p {
 }
 
 
+.admin-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 2px solid black;
+    padding: 10px 50px;
+    gap: 50px;
+    margin-bottom: 0 !important;
+    margin-top: 20px;
+}
+
+.admin-links li {
+    list-style-type: none;
+}
+
+
+.admin-links li>a {
+    text-decoration: none;
+    color: #2495C6;
+    transform: 200ms;
+}
+
+
+.admin-links li>a:hover {
+    color: #196f94;
+    text-decoration: underline;
+}
 
 /* Accueil */
 
@@ -78,16 +119,12 @@ footer p {
 
 /* Login */
 
-.container-pos{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-}
 
 .authen-container{
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
     padding: 30px 20px;
     border: 2px solid black;
     text-align: center;
@@ -127,11 +164,6 @@ footer p {
 
 .submit-login{
     margin-top: 20px;
-    background-color: var(--button-color);
-    border: none;
-    color: white;
-    padding: 5px 15px;
-    transition: 150ms ease;
 }
 
 .erreur-connexion{
@@ -140,12 +172,35 @@ footer p {
     margin-bottom: 0 !important;
 }
 
-
-.panier:hover, .submit-login:hover{
-    background-color: #258cb8;
-    box-shadow: 0 0 50px #2eaae034;
-}
-
 .admin-account{
     color: #cf3325;
+}
+
+
+/* Ajouter données admin */
+
+.form-admin{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+
+.form-admin textarea { 
+    vertical-align: top; 
+}
+
+.member_added, .member_error{
+    text-align: center;
+}
+
+.member_added {
+    color: rgb(68, 202, 68);
+}
+
+.member_error {
+    color: rgb(185, 41, 22);
 }
