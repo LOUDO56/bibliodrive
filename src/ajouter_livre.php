@@ -26,9 +26,8 @@
         <h1 class="dernier-emprunt">Ajouter un livre</h1>
 
         <form method="post" class="form-admin">
-            <label for="auteur">
-                Auteur : 
-                <?php
+            <label for="auteur">Auteur : </label>
+            <?php
                     echo "<select name=\"auteur\" id=\"auteur\" required>";
                     echo "<option value=\"\" disabled selected>---- Sélectionner ----</option>";
                     $req = $connexion->query("SELECT nom FROM auteur");
@@ -40,28 +39,22 @@
 
                     echo "</select>";
                 
-                ?>
-            </label>
+            ?>
 
-            <label for="titre">
-                Titre : <input type="text" name="titre" id="titre" autocomplete="off" required>
-            </label>
+            <label for="titre">Titre : </label>
+            <input type="text" name="titre" id="titre" autocomplete="off" required>
             
-            <label for="ISBN13">
-                ISBN13 : <input type="text" name="ISBN13" id="ISBN13" autocomplete="off" required>
-            </label>
+            <label for="ISBN13">ISBN13 :</label>
+            <input type="text" name="ISBN13" id="ISBN13" autocomplete="off" required>
             
-            <label for="annee_parution">
-                Année de parution : <input type="text" name="annee_parution" id="annee_parution" autocomplete="off" required>
-            </label>
+            <label for="annee_parution">Année de parution : </label>
+            <input type="text" name="annee_parution" id="annee_parution" autocomplete="off" required>
             
-            <label for="resume">
-                Résumé : <textarea name="resume" id="resume" cols="30" rows="10" autocomplete="off" required></textarea>
-            </label>
-            
-            <label for="cover">
-                Image : <input type="file" id="cover" name="cover" accept="image/png, image/jpeg" autocomplete="off" required/>
-            </label>
+            <label for="resume">Résumé : </label>
+            <textarea name="resume" id="resume" autocomplete="off" rows="7" required></textarea>     
+
+            <label for="cover">Image : </label>
+            <input type="file" id="cover" name="cover" accept="image/png, image/jpeg" autocomplete="off" required/>
 
             <input type="submit" value="Ajouter le livre" class="button-general" required>
 

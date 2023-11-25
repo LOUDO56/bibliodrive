@@ -185,7 +185,11 @@ footer p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 15px;
+}
+
+.form-admin input[type="submit"]{
+    margin-top: 30px;
 }
 
 

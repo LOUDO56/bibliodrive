@@ -9,12 +9,10 @@
 </head>
 <body>
     <?php
-        // Ne rien afficher à un utilisateur curieux 
-
         session_start();
 
         if(!$_SESSION["adminUser"]) {
-            echo "Accès non autorisé.";
+            echo "Accès non autorisé."; // Ne rien afficher à un utilisateur curieux 
             exit;
         }
 
@@ -63,33 +61,26 @@
 
         <form method="post" class="form-admin">
 
-            <label for="email">
-                Email : <input type="email" name="email" id="email" autocomplete="off" required>
-            </label>
+            <label for="email">Email : </label>
+            <input type="email" name="email" id="email" autocomplete="off" required>
             
-            <label for="mdp">
-                Mot de passe : <input type="password" name="mdp" id="mdp" autocomplete="off" required>
-            </label>
+            <label for="mdp">Mot de passe : </label>
+            <input type="password" name="mdp" id="mdp" autocomplete="off" required>
             
-            <label for="nom">
-                Nom : <input type="text" name="nom" id="nom" autocomplete="off" required>
-            </label>
+            <label for="nom">Nom : </label>
+            <input type="text" name="nom" id="nom" autocomplete="off" required>
             
-            <label for="prenom">
-                Prenom : <input type="text" name="prenom" id="prenom" autocomplete="off" required>
-            </label>
+            <label for="prenom">Prenom : </label>
+            <input type="text" name="prenom" id="prenom" autocomplete="off" required>
 
-            <label for="adresse">
-                Adresse : <input type="text" name="adresse" id="adresse" autocomplete="off" required>
-            </label>
+            <label for="adresse">Adresse : </label>
+            <input type="text" name="adresse" id="adresse" autocomplete="off" required>
 
-            <label for="ville">
-                Ville : <input type="text" name="ville" id="ville" autocomplete="off" required>
-            </label>
+            <label for="ville">Ville : </label>
+            <input type="text" name="ville" id="ville" autocomplete="off" required>
 
-            <label for="codePostal">
-                Code Postal : <input type="number" name="codePostal" id="codePostal" min="1" max="100000" autocomplete="off" required>
-            </label>
+            <label for="codePostal">Code Postal : </label>
+            <input type="number" name="codePostal" id="codePostal" min="1" max="100000" autocomplete="off" required>
 
 
 
