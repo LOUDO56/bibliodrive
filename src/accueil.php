@@ -20,12 +20,12 @@
     <?php
         if($_SESSION["adminUser"])  
             echo '
-            <h1 class="dernier-emprunt">
+            <h1 class="big-title">
                 Admin panel.
             </h1>';
         else
             echo '
-            <h1 class="dernier-emprunt">
+            <h1 class="big-title">
                 Dernier emprunt
             </h1>';
     ?>

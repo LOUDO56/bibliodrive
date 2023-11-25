@@ -57,7 +57,7 @@
 
     ?>
 
-        <h1 class="dernier-emprunt">Ajouter un membre</h1>
+        <h1 class="big-title">Ajouter un membre</h1>
 
         <form method="post" class="form-admin">
 
@@ -90,9 +90,9 @@
             
                 if(isset($member_added)) {
                     if ($member_added == TRUE) 
-                        echo '<p class="member_added">Membre ajouté avec succès !</p>';
+                        echo '<p class="ajout_succes">Membre ajouté avec succès !</p>';
                     else
-                        echo '<p class="member_error">Une erreur est survenue l\'or de l\'ajout du membre : '. $erreur . '</p>';
+                        echo '<p class="ajout_erreur">Une erreur est survenue l\'or de l\'ajout du membre : '. $erreur . '</p>';
                 }
             ?>
 

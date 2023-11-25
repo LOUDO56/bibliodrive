@@ -21,20 +21,56 @@
         require("utilitaires/authentification.php");
         require("utilitaires/admin-header.html");
 
+        if(isset($_POST["noauteur"])){
+
+            $noauteur = $_POST["noauteur"];
+            $titre = $_POST["titre"];
+            $ISBN13 = $_POST["ISBN13"];
+            $annee_parution = $_POST["annee_parution"];
+            $resume = $_POST["resume"];
+            $cover = $_POST["cover"];
+
+           try {
+
+                $req = $connexion->prepare("
+                INSERT INTO 
+                livre(noauteur, titre, isbn13, anneeparution, resume, dateajout, image) 
+                VALUES(:noauteur, :titre, :ISBN13, :annee_parution, :resume, :dateajout, :cover)
+                ");
+
+                $req->bindValue(":noauteur", $noauteur, PDO::PARAM_INT);
+                $req->bindValue(":titre", $titre);
+                $req->bindValue(":ISBN13", $ISBN13);
+                $req->bindValue(":annee_parution", $annee_parution);
+                $req->bindValue(":resume", $resume);
+                $req->bindValue(":dateajout", date("Y-m-d"));
+                $req->bindValue(":cover", $cover);
+
+                $req->execute();
+                $book_added = TRUE;
+
+           } catch(Exception $e) {
+                $erreur = $e;
+                $book_added = FALSE;
+           }
+            
+            
+        }
+
     ?>
 
-        <h1 class="dernier-emprunt">Ajouter un livre</h1>
+        <h1 class="big-title">Ajouter un livre</h1>
 
         <form method="post" class="form-admin">
             <label for="auteur">Auteur : </label>
             <?php
-                    echo "<select name=\"auteur\" id=\"auteur\" required>";
+                    echo "<select name=\"noauteur\" id=\"auteur\" required>";
                     echo "<option value=\"\" disabled selected>---- Sélectionner ----</option>";
-                    $req = $connexion->query("SELECT nom FROM auteur");
+                    $req = $connexion->query("SELECT noauteur,nom FROM auteur");
                     $req->setFetchMode(PDO::FETCH_OBJ);
 
                     while($auteur = $req->fetch()){
-                        echo "<option value=\"{$auteur->nom}\">{$auteur->nom}</option>";
+                        echo "<option value=\"{$auteur->noauteur}\">{$auteur->nom}</option>";
                     }
 
                     echo "</select>";
@@ -57,6 +93,16 @@
             <input type="file" id="cover" name="cover" accept="image/png, image/jpeg" autocomplete="off" required/>
 
             <input type="submit" value="Ajouter le livre" class="button-general" required>
+            
+            <?php 
+            
+                if(isset($book_added)) {
+                    if ($book_added == TRUE) 
+                        echo '<p class="ajout_succes">Livre ajouté avec succès !</p>';
+                    else
+                        echo '<p class="ajout_erreur">Une erreur est survenue l\'or de l\'ajout du livre : '. $erreur . '</p>';
+                }
+            ?>
 
 </body>
 </html>
