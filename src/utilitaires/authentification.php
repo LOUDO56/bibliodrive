@@ -22,6 +22,7 @@
             if($utilisateur) { // Si ça correspond, l'utilisateur est connecté
                 $_SESSION["email"] = $_POST["email"];
                 $_SESSION["connected"] = TRUE; 
+                $_SESSION["panier"] = array();
                 if($utilisateur->profil == "admin") $_SESSION["adminUser"] = TRUE; //Si c'est un admin, attribuer le role admin.
 
             }
@@ -36,6 +37,7 @@
         if(isset($_POST["logoff"])) {
             $_SESSION["connected"] = FALSE;
             unset($_SESSION["email"]);
+            unset($_SESSION["panier"]);
             
             if($_SESSION["adminUser"]) { // Si l'utilisateur est un admin, on le redirige dans la page d'accueil pour éviter tout conflit.
                 $_SESSION["adminUser"] = FALSE;

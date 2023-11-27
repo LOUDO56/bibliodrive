@@ -15,6 +15,35 @@
 
         require_once('utilitaires/connexion.php');
 
+        if(isset($_POST["ajout_panier"])){
+            echo "rest post";
+            $_POST = array(); 
+        }
+
+        // if(isset($_POST["emprunt_livre"])){
+
+        //     try{
+        //         $date_emprunt = date("Y-m-d");
+        //         $date_retour = date('Y-m-d', strtotime($date_emprunt. ' + 30 days'));
+
+        //         $req = $connexion->prepare("INSERT INTO emprunter(mel,nolivre,dateemprunt,dateretour) 
+        //         VALUES(:email, :nolivre, :dateemprunt, :dateretour);");
+
+        //         $req->bindValue(":email", $_SESSION["email"]);
+        //         $req->bindValue(":nolivre", $_GET["livre"], PDO::PARAM_INT);
+        //         $req->bindValue(":dateemprunt", $date_emprunt);
+        //         $req->bindValue(":dateretour", $date_retour);
+
+        //         $req->setFetchMode(PDO::FETCH_OBJ);
+        //         $req->execute();
+
+        //     } catch (Exception $e){
+        //         echo "Erreur durant insertion : " . $e;
+
+        //     }
+        // }
+
+
         require("utilitaires/authentification.php");
         require("utilitaires/entete.html");
 
@@ -68,10 +97,20 @@
                 
                 
                 ?>
-                <form method="post">
+                <!-- <iframe name="ajouter_livre_panier" style="display:none;"></iframe> -->
+                <form method="post" action="panier.php">
                     <?php
-                        if(!$emprute){
-                            echo '<input type="submit" value="Ajouter au panier" class="button-general ajout-panier">';
+                        if($_SESSION["connected"]){
+                            if(in_array($_GET["livre"],$_SESSION["panier"])){
+                                echo "<p>Déjà dans votre panier.</p>";
+                            } else {
+                                echo '<input type="hidden" name="ajout_panier" value="true">';
+                                echo '<input type="hidden" name="nolivre" value="'.$_GET["livre"].'">';
+                                echo '<input type="submit" value="Ajouter au panier" class="button-general ajout-panier">';
+                            }
+
+                        } else {
+                            echo "<p>Connectez vous pour ajouter à votre panier.</p>";
                         }
                     ?>
                 </form>

@@ -275,3 +275,11 @@ footer p {
 .order-unavailable{
     color: #c93a35;
 }
+
+.retirer-panier{
+    background-color: #c93a35;
+}
+
+.retirer-panier:hover{
+    background-color: #992b27 !important;
+}
