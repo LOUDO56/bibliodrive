@@ -50,7 +50,7 @@
             } else {
 
                 while($livre = $req->fetch()) {
-                    echo '<p><a href="details.php?livre='.$livre->nolivre.'">'.$livre->titre.'</a><p>';
+                    echo '<p><a href="detail.php?livre='.$livre->nolivre.'">'.$livre->titre.'</a><p>';
                 }
             }
 

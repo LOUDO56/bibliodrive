@@ -9,12 +9,10 @@
 </head>
 <body>
     <?php
-        // Ne rien afficher à un utilisateur curieux 
-
         session_start();
 
-        if(!$_SESSION["adminUser"]) {
-            echo "Accès non autorisé.";
+        if(!$_SESSION["adminUser"] || !isset($_SESSION["adminUser"])) {
+            echo "Accès non autorisé."; // Refuse l'accès un utilisateur curieux, même si il requête l'API en POST 
             exit;
         }
 
@@ -92,12 +90,12 @@
             <label for="cover">Image : </label>
             <input type="file" id="cover" name="cover" accept="image/png, image/jpeg" autocomplete="off" required/>
 
-            <input type="submit" value="Ajouter le livre" class="button-general" required>
+            <input type="submit" value="Ajouter le livre" class="button-general">
             
             <?php 
             
                 if(isset($book_added)) {
-                    if ($book_added == TRUE) 
+                    if ($book_added) 
                         echo '<p class="ajout_succes">Livre ajouté avec succès !</p>';
                     else
                         echo '<p class="ajout_erreur">Une erreur est survenue l\'or de l\'ajout du livre : '. $erreur . '</p>';

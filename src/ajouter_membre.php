@@ -11,8 +11,8 @@
     <?php
         session_start();
 
-        if(!$_SESSION["adminUser"]) {
-            echo "Accès non autorisé."; // Ne rien afficher à un utilisateur curieux 
+        if(!$_SESSION["adminUser"] || !isset($_SESSION["adminUser"])) {
+            echo "Accès non autorisé."; // Refuse l'accès un utilisateur curieux, même si il requête l'API en POST 
             exit;
         }
 
@@ -84,12 +84,12 @@
 
 
 
-            <input type="submit" value="Créer un membre" class="button-general" required>
+            <input type="submit" value="Créer un membre" class="button-general">
 
             <?php 
             
                 if(isset($member_added)) {
-                    if ($member_added == TRUE) 
+                    if ($member_added) 
                         echo '<p class="ajout_succes">Membre ajouté avec succès !</p>';
                     else
                         echo '<p class="ajout_erreur">Une erreur est survenue l\'or de l\'ajout du membre : '. $erreur . '</p>';
