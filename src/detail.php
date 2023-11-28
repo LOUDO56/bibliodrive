@@ -11,14 +11,12 @@
 
     <?php
 
+        ini_set('session.cache_limiter','public');
+        session_cache_limiter(false); // Eviter un "Le document a expiré !" A cause du post quand on fait un retour en arrière.
+
         session_start();
 
         require_once('utilitaires/connexion.php');
-
-        if(isset($_POST["ajout_panier"])){
-            echo "rest post";
-            $_POST = array(); 
-        }
 
         // if(isset($_POST["emprunt_livre"])){
 
@@ -98,22 +96,19 @@
                 
                 ?>
                 <!-- <iframe name="ajouter_livre_panier" style="display:none;"></iframe> -->
-                <form method="post" action="panier.php">
-                    <?php
-                        if($_SESSION["connected"]){
-                            if(in_array($_GET["livre"],$_SESSION["panier"])){
-                                echo "<p>Déjà dans votre panier.</p>";
-                            } else {
-                                echo '<input type="hidden" name="ajout_panier" value="true">';
-                                echo '<input type="hidden" name="nolivre" value="'.$_GET["livre"].'">';
-                                echo '<input type="submit" value="Ajouter au panier" class="button-general ajout-panier">';
-                            }
-
+                
+                <?php
+                    if($_SESSION["connected"]){
+                        if(in_array($_GET["livre"],$_SESSION["panier"])){
+                            echo '<a href="utilitaires/panier_manager.php?retirer=true&nolivre='.$_GET["livre"].'" class="button-general retirer-panier">Retirer du panier</a>';
                         } else {
-                            echo "<p>Connectez vous pour ajouter à votre panier.</p>";
+                            echo '<a href="utilitaires/panier_manager.php?ajout=true&nolivre='.$_GET["livre"].'" class="button-general ajout-panier">Ajouter au panier</a>';
                         }
-                    ?>
-                </form>
+
+                    } else {
+                        echo "<p>Connectez vous pour ajouter à votre panier.</p>";
+                    }
+                ?>
             </div>
         </div>
         <div>

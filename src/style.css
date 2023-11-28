@@ -5,6 +5,10 @@
     --button-color: #1C7196;
 }
 
+a {
+    text-decoration: none;
+}
+
 .button-general{
     border: none;
     color: white;
@@ -282,4 +286,14 @@ footer p {
 
 .retirer-panier:hover{
     background-color: #992b27 !important;
+}
+
+
+/* Panier */
+
+.panier-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

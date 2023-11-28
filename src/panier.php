@@ -10,31 +10,39 @@
 <body>
 
     <?php
-        // ini_set('session.cache_limiter','public');
-        // session_cache_limiter(false); // Eviter un "Le document a expiré !" A cause du post quand on fait un retour en arrière.
-        
+
         session_start();
 
         require("utilitaires/authentification.php");
         require("utilitaires/entete.html");
 
-        if($_SESSION["connected"]){
-            if(isset($_POST["ajout_panier"])){
-                if(!in_array($_POST["nolivre"], $_SESSION["panier"])){
-                    array_push($_SESSION["panier"], $_POST["nolivre"]);
-                }
-                header("Location: panier.php");
-            }
-        }
-
     ?>
 
     <h1 class="big-title">Votre panier</h1>
 
-    <div class="resume-container">
+    <div class="panier-container">
         <?php
 
-        
+            if(count($_SESSION["panier"]) > 0){
+                foreach($_SESSION["panier"] as $livre){
+                    $req = $connexion->prepare("
+                        SELECT nom, prenom, titre, anneeparution
+                        FROM livre
+                        JOIN auteur ON livre.noauteur = auteur.noauteur
+                        WHERE nolivre = :nolivre;
+                    ");
+
+                    $req->bindValue(":nolivre", $livre, PDO::PARAM_INT);
+
+                    $req->setFetchMode(PDO::FETCH_OBJ);
+                    $req->execute();
+
+                    while($panier_info = $req->fetch()){
+                        echo "<p>".$panier_info->nom." ".$panier_info->prenom." - ".$panier_info->titre." (".$panier_info->anneeparution.")";
+                    }
+
+                }
+            }
         
         ?>
         
