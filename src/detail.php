@@ -18,30 +18,6 @@
 
         require_once('utilitaires/connexion.php');
 
-        // if(isset($_POST["emprunt_livre"])){
-
-        //     try{
-        //         $date_emprunt = date("Y-m-d");
-        //         $date_retour = date('Y-m-d', strtotime($date_emprunt. ' + 30 days'));
-
-        //         $req = $connexion->prepare("INSERT INTO emprunter(mel,nolivre,dateemprunt,dateretour) 
-        //         VALUES(:email, :nolivre, :dateemprunt, :dateretour);");
-
-        //         $req->bindValue(":email", $_SESSION["email"]);
-        //         $req->bindValue(":nolivre", $_GET["livre"], PDO::PARAM_INT);
-        //         $req->bindValue(":dateemprunt", $date_emprunt);
-        //         $req->bindValue(":dateretour", $date_retour);
-
-        //         $req->setFetchMode(PDO::FETCH_OBJ);
-        //         $req->execute();
-
-        //     } catch (Exception $e){
-        //         echo "Erreur durant insertion : " . $e;
-
-        //     }
-        // }
-
-
         require("utilitaires/authentification.php");
         require("utilitaires/entete.html");
 
@@ -99,14 +75,27 @@
                 
                 <?php
                     if($_SESSION["connected"]){
-                        if(in_array($_GET["livre"],$_SESSION["panier"])){
-                            echo '<a href="utilitaires/panier_manager.php?retirer=true&nolivre='.$_GET["livre"].'" class="button-general retirer-panier">Retirer du panier</a>';
+                        $req = $connexion->prepare("SELECT mel FROM emprunter WHERE nolivre = :nolivre");
+                        $req->bindValue(":nolivre", $_GET["livre"], PDO::PARAM_INT);
+                        $req->setFetchMode(PDO::FETCH_OBJ);
+                        $req->execute();
+                        $user_mel = $req->fetch();
+                        if(isset($user_mel->mel) && $user_mel->mel == $_SESSION["email"]){
+                            echo '<p>Déjà emprunté.</p>';
                         } else {
-                            echo '<a href="utilitaires/panier_manager.php?ajout=true&nolivre='.$_GET["livre"].'" class="button-general ajout-panier">Ajouter au panier</a>';
+                            if(!$emprute){
+                                if(in_array($_GET["livre"],$_SESSION["panier"])){
+                                    echo '<a href="utilitaires/panier_manager.php?retirer=true&nolivre='.$_GET["livre"].'&redirect=detail.php?livre='.$_GET["livre"].'" class="button-general retirer-panier">Retirer du panier</a>';
+                                } else {
+                                    echo '<a href="utilitaires/panier_manager.php?ajout=true&nolivre='.$_GET["livre"].'&redirect=detail.php?livre='.$_GET["livre"].'" class="button-general ajout-panier">Ajouter au panier</a>';
+                                }
+                            }
                         }
 
                     } else {
-                        echo "<p>Connectez vous pour ajouter à votre panier.</p>";
+                        if(!$emprute){
+                            echo "<p>Connectez vous pour ajouter à votre panier.</p>";
+                        }
                     }
                 ?>
             </div>

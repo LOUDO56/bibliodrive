@@ -267,6 +267,10 @@ footer p {
     font-size: 16px;
 }
 
+.info-commande p {
+    margin-bottom: 0;
+}
+
 .order-available, .order-unavailable{
     font-weight: bold;
     margin-bottom: 0;
@@ -296,4 +300,23 @@ footer p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+}
+
+.panier-info{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.panier-info p{
+    margin-bottom: 0;
+}
+
+.emprunt-livre{
+    background-color: #3BAE46;
+}
+
+.emprunt-livre:hover{
+    background-color: #32993c;
 }
