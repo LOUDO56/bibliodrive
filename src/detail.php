@@ -82,6 +82,7 @@
                         $user_mel = $req->fetch();
                         if(isset($user_mel->mel) && $user_mel->mel == $_SESSION["email"]){
                             echo '<p>Déjà emprunté.</p>';
+                            echo '<a href="utilitaires/panier_manager.php?rendre=true&nolivre='.$_GET["livre"].'&redirect=detail.php?livre='.$_GET["livre"].'" class="button-general emprunt-livre">Rendre le livre</a>';
                         } else {
                             if(!$emprute){
                                 if(in_array($_GET["livre"],$_SESSION["panier"])){
