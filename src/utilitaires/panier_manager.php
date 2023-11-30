@@ -29,8 +29,8 @@
             $req->execute();
             $is_from_user = $req->fetch();
             if($is_from_user->mel == $_SESSION["email"]){
-                $req = $connexion->prepare("DELETE FROM emprunter WHERE mel = :email");
-                $req->bindValue(":email", $_SESSION["email"]);
+                $req = $connexion->prepare("DELETE FROM emprunter WHERE nolivre = :nolivre");
+                $req->bindValue(":nolivre", $_REQUEST["nolivre"]);
                 $req->execute();
             }
 
