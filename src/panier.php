@@ -83,6 +83,9 @@
     
     </div>
 
+    <div class="retour-accueil">
+        <a href="accueil.php">← Retour à l'accueil</a>
+    </div>
     <footer>
         <?php require('utilitaires/message_important.html')?>
     </footer>

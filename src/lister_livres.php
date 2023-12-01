@@ -35,7 +35,7 @@
         <?php
             $req = $connexion->prepare("
                 SELECT nolivre,titre FROM livre
-                INNER JOIN auteur ON livre.noauteur = livre.noauteur
+                INNER JOIN auteur ON livre.noauteur = auteur.noauteur
                 WHERE nom = :auteur;
             ");
 
@@ -56,6 +56,10 @@
 
         
         ?>
+    </div>
+
+    <div class="retour-accueil">
+        <a href="accueil.php">← Retour à l'accueil</a>
     </div>
 
     <footer>

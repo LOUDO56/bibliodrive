@@ -40,10 +40,14 @@
         }
     ?>
 
+    
+    
 
-
-    <div class="resume-container">
-        <div>
+<div class="resume-container">
+    <div>
+            <div class="retour-detail">
+                <a href="<?php echo 'lister_livres.php?auteur='.$info_livre->nom.''?>">← Retour</a>
+            </div>
             <p><b>Auteur:</b> <?php echo $info_livre->nom . " " . $info_livre->prenom ;?></p>
             <p><b>ISBN13:</b> <?php echo $info_livre->isbn13;?></p>
             <p class="titre-resume">Résumé du livre</p>

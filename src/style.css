@@ -5,6 +5,7 @@
     --button-color: #1C7196;
 }
 
+
 a {
     text-decoration: none;
 }
@@ -22,6 +23,7 @@ a {
     background-color: #258cb8;
     box-shadow: 0 0 50px #2eaae034;
 }
+
 
 *{
     padding: 0;
@@ -51,6 +53,43 @@ footer p {
     margin-bottom: 0 !important;
     font-size: 14px;
     font-weight: 300;
+}
+
+.retour-accueil{
+    margin-top: 64px;
+    color: rgba(0, 0, 0, 0.747);
+    font-size: 15px;
+    text-align: center;
+}
+
+.retour-accueil a {
+    color: black;
+    padding: 10px 20px;
+    border: solid 2px black;
+    transition: 200ms;
+}
+
+.retour-accueil a:hover{
+    opacity: 0.7;
+}
+
+.retour-detail{
+    margin-bottom: 25px;
+}
+
+.retour-detail a{
+    border-radius: 100px;
+    background-color: #1e85b1;
+    color: white;
+    padding: 5px 15px;
+    padding-top: 6px;
+    border: none;
+    font-size: 15px;
+    transition: 200ms;
+}
+
+.retour-detail a:hover{
+    background-color: #1a749b;
 }
 
 /* Entete HTML */
@@ -121,6 +160,13 @@ footer p {
 }
 
 
+.carousel-item img {
+    max-width: 45%;
+    margin: 0 auto;
+    height: auto;
+    border: 2px solid black;
+}
+
 
 /* Login */
 
@@ -135,6 +181,7 @@ footer p {
     text-align: center;
     border-radius: 10px;
     width: 17em;
+    z-index: 1;
 }
 
 
