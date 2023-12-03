@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <?php require("utilitaires/import.html");?>
     <title>Bibliodrive - Détail</title>
 </head>
 <body>
@@ -18,7 +15,6 @@
 
         require_once('utilitaires/connexion.php');
 
-        require("utilitaires/authentification.php");
         require("utilitaires/entete.html");
 
         if(!isset($_GET["livre"])) {
@@ -42,9 +38,9 @@
 
     
     
-
-<div class="resume-container">
-    <div>
+    <?php require("utilitaires/authentification.php");?>
+    <div class="resume-container">
+        <div>
             <div class="retour-detail">
                 <a href="<?php echo 'lister_livres.php?auteur='.$info_livre->nom.''?>">← Retour</a>
             </div>
@@ -86,7 +82,6 @@
                         $user_mel = $req->fetch();
                         if(isset($user_mel->mel) && $user_mel->mel == $_SESSION["email"]){
                             echo '<p>Déjà emprunté.</p>';
-                            echo '<a href="utilitaires/panier_manager.php?rendre=true&nolivre='.$_GET["livre"].'&redirect=detail.php?livre='.$_GET["livre"].'" class="button-general emprunt-livre">Rendre le livre</a>';
                         } else {
                             if(!$emprute){
                                 if(in_array($_GET["livre"],$_SESSION["panier"])){
@@ -116,7 +111,7 @@
             <img src="images/covers/<?php echo $cover?>" alt="Book cover" class="book-cover-img">
         </div>
     </div>
- 
+    
 
     <footer>
         <?php require('utilitaires/message_important.html')?>

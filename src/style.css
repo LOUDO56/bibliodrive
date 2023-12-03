@@ -167,21 +167,52 @@ footer p {
     border: 2px solid black;
 }
 
+.carousel-inner{
+    width: 50em;
+    margin: auto;
+}
+
 
 /* Login */
 
 
-.authen-container{
+.hamburger-icon{
+    visibility: hidden;
+    width: 30px;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+}
+
+
+.cross-mark{
+    visibility: hidden;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+}
+
+.mobile-nav{
     position: fixed;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.mobile-nav.active{
+    right: 0;
+}
+
+.authen-container{
     padding: 30px 20px;
     border: 2px solid black;
     text-align: center;
     border-radius: 10px;
     width: 17em;
-    z-index: 1;
 }
 
 
@@ -347,6 +378,7 @@ footer p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     gap: 20px;
 }
 
@@ -360,10 +392,82 @@ footer p {
     margin-bottom: 0;
 }
 
-.emprunt-livre{
+.validate-button{
     background-color: #3BAE46;
 }
 
-.emprunt-livre:hover{
+.validate-button:hover{
     background-color: #32993c;
+}
+
+
+
+@media screen and (max-width: 1136px) {
+    .mobile-nav{
+        right: -25em;
+        background-color: white;
+        padding: 0 10px;
+        border: 2px solid black;
+        transition: 200ms;
+    }
+
+    .hamburger-icon, .cross-mark{
+        visibility: visible;
+    }
+
+    .resume-container{
+        flex-direction: column-reverse;
+        width: 100%;
+        position: static;
+        transform: none;
+        margin-top: 50px;
+        margin-bottom: 100px;
+        padding: 0 10px;
+    }
+
+    .book-cover-img{
+        max-width: 12em;
+    }
+
+}
+
+
+@media screen and (max-width: 900px) {
+
+    .big-title{
+        font-size: 38px;
+    }
+
+    .carousel-inner{
+        width: 100%;
+    }
+    .carousel-item img {
+        max-width: 15em;
+        margin: 0 auto;
+    }
+
+    footer{
+        padding: 5px;
+    }
+
+    footer p{
+        font-size: 12px;
+    }
+    
+    .panier{
+        font-size: 15px;
+    }
+
+    .panier-info{
+        padding: 0 10px;
+    }
+
+}
+
+@media screen and (max-width: 439px) {
+
+    .nosubmit{
+        margin-bottom: 10px;
+    }
+
 }

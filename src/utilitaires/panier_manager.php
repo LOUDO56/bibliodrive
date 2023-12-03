@@ -21,19 +21,6 @@
         } elseif(isset($_REQUEST["retirer"])){         
             $id = array_search($_REQUEST["nolivre"],$_SESSION["panier"]);
             unset($_SESSION["panier"][$id]);
-        } elseif(isset($_REQUEST["rendre"])){
-
-            $req = $connexion->prepare("SELECT mel FROM emprunter WHERE mel = :email");
-            $req->bindValue(":email", $_SESSION["email"]);
-            $req->setFetchMode(PDO::FETCH_OBJ);
-            $req->execute();
-            $is_from_user = $req->fetch();
-            if($is_from_user->mel == $_SESSION["email"]){
-                $req = $connexion->prepare("DELETE FROM emprunter WHERE nolivre = :nolivre");
-                $req->bindValue(":nolivre", $_REQUEST["nolivre"]);
-                $req->execute();
-            }
-
         }
         header("Location: ../".$_REQUEST["redirect"]);
 
