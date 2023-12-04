@@ -8,6 +8,8 @@
     <?php
         session_start();
 
+        require("utilitaires/authentification.php");
+
         if(!$_SESSION["adminUser"] || !isset($_SESSION["adminUser"])) {
             echo "Accès non autorisé."; // Refuse l'accès un utilisateur curieux, même si il requête l'API en POST 
             exit;
@@ -52,8 +54,7 @@
         }
 
     ?>
-
-        <?php require("utilitaires/authentification.php");?>
+    
         <h1 class="big-title">Ajouter un membre</h1>
 
         <form method="post" class="form-admin">

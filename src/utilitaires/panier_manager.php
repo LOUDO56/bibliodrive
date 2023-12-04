@@ -8,13 +8,19 @@
         if(isset($_REQUEST["ajout"])){    
             if(!in_array($_REQUEST["nolivre"], $_SESSION["panier"])){
                 // Vérifier si l'utilisateur n'a pas déjà le livre emprunté (si utilisation via requete)
-                $req = $connexion->prepare("SELECT mel FROM emprunter WHERE nolivre = :nolivre");
-                $req->bindValue(":nolivre", $_REQUEST["nolivre"], PDO::PARAM_INT);
+                $req = $connexion->prepare("SELECT mel FROM emprunter WHERE mel = :email");
+                $req->bindValue(":email", $_SESSION["email"]);
                 $req->setFetchMode(PDO::FETCH_OBJ);
                 $req->execute();
-                $user_mel = $req->fetch();
-                if(!isset($user_mel->mel) || $user_mel->mel != $_SESSION["email"]) {
-                    array_push($_SESSION["panier"], $_REQUEST["nolivre"]);                 
+    
+                if($req->rowCount() < 5){ // Vérifier si la personne n'a pas plus de 5 emprunts
+                    $req = $connexion->prepare("SELECT mel FROM emprunter WHERE nolivre = :nolivre");
+                    $req->bindValue(":nolivre", $_REQUEST["nolivre"], PDO::PARAM_INT);
+                    $req->execute();
+                    $user_mel = $req->fetch();
+                    if(!isset($user_mel->mel) || $user_mel->mel != $_SESSION["email"]) {
+                        array_push($_SESSION["panier"], $_REQUEST["nolivre"]);                 
+                    }
                 }
             }
 

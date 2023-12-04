@@ -6,41 +6,45 @@
     <title>Bibliodrive - Accueil</title>
 </head>
 <body>
+
     <header>
         <?php
             session_start();
+
+            require("utilitaires/authentification.php");
+
             if($_SESSION["adminUser"]) require("utilitaires/admin-header.html");
             else require("utilitaires/entete.html");
-
+            
             require_once('utilitaires/connexion.php');
-
-        ?>
+            
+            ?>
     </header>
+    
     <?php
         if($_SESSION["adminUser"]){
-
+            
             echo '
             <h1 class="big-title">
-                Admin panel.
+            Admin panel.
             </h1>';
             exit;
         } else {
-
+            
             echo '
             <h1 class="big-title">
-                Dernières acquisitions
+            Dernières acquisitions
             </h1>';
         }
-
-
+        
+        
         
         $req = $connexion->prepare("SELECT image FROM livre ORDER BY nolivre DESC LIMIT 2;");
         $req->setFetchMode(PDO::FETCH_OBJ).
         $req->execute();
+        
+        ?>
 
-    ?>
-
-    <?php require("utilitaires/authentification.php");?>
 
     <div class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">

@@ -11,6 +11,8 @@
         session_start();
         require_once('utilitaires/connexion.php');
 
+        require("utilitaires/authentification.php");
+
         require("utilitaires/entete.html");
 
         if(isset($_POST["emprunt_livre"])){
@@ -34,8 +36,6 @@
         }
 
     ?>
-
-    <?php require("utilitaires/authentification.php");?>
 
     <h1 class="big-title">Votre panier</h1>
 

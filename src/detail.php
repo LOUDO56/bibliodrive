@@ -8,10 +8,10 @@
 
     <?php
 
-        ini_set('session.cache_limiter','public');
-        session_cache_limiter(false); // Eviter un "Le document a expiré !" A cause du post quand on fait un retour en arrière.
 
         session_start();
+
+        require("utilitaires/authentification.php");
 
         require_once('utilitaires/connexion.php');
 
@@ -36,9 +36,6 @@
         }
     ?>
 
-    
-    
-    <?php require("utilitaires/authentification.php");?>
     <div class="resume-container">
         <div>
             <div class="retour-detail">
@@ -80,8 +77,16 @@
                         $req->setFetchMode(PDO::FETCH_OBJ);
                         $req->execute();
                         $user_mel = $req->fetch();
+
+                        $req = $connexion->prepare("SELECT mel FROM emprunter WHERE mel = :email");
+                        $req->bindValue(":email", $_SESSION["email"]);
+                        $req->execute();
+                        $emprunt_utilisateur = $req->fetch();
+
                         if(isset($user_mel->mel) && $user_mel->mel == $_SESSION["email"]){
                             echo '<p>Déjà emprunté.</p>';
+                        } elseif($req->rowCount() == 5){ // Vérifier si la personne n'a pas plus de 5 emprunts
+                            echo '<p>Vous avez plus de 5 emprunts.</p>';
                         } else {
                             if(!$emprute){
                                 if(in_array($_GET["livre"],$_SESSION["panier"])){

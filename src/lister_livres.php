@@ -8,6 +8,9 @@
     <header>
         <?php
             session_start();
+
+            require("utilitaires/authentification.php");
+
             require("utilitaires/entete.html");
 
         ?>
@@ -25,8 +28,6 @@
 
         ?>
     </h1>
-
-    <?php require("utilitaires/authentification.php");?>
 
     <div class="resultat-recherche">
         <?php
