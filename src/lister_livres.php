@@ -30,30 +30,49 @@
     </h1>
 
     <div class="resultat-recherche">
-        <?php
-            $req = $connexion->prepare("
-                SELECT nolivre,titre FROM livre
-                INNER JOIN auteur ON livre.noauteur = auteur.noauteur
-                WHERE nom = :auteur;
-            ");
 
-            $req->bindValue(":auteur", $auteur);
-
-            $req->setFetchMode(PDO::FETCH_OBJ);
-            $req->execute();
-
-            if($req->rowCount() == 0) {
-                echo "<p>Aucun Résultat.</p>";
-
-            } else {
-
-                while($livre = $req->fetch()) {
-                    echo '<p><a href="detail.php?livre='.$livre->nolivre.'">'.$livre->titre.'</a><p>';
+    <?php
+            if(isset($auteur)){
+                
+                $req = $connexion->prepare("
+                    SELECT nolivre,image,anneeparution,resume,titre FROM livre
+                    INNER JOIN auteur ON livre.noauteur = auteur.noauteur
+                    WHERE nom = :auteur;
+                ");
+    
+                $req->bindValue(":auteur", $auteur);
+    
+                $req->setFetchMode(PDO::FETCH_OBJ);
+                $req->execute();
+    
+                if($req->rowCount() == 0) {
+                    echo "<p>Aucun Résultat.</p>";
+    
+                } else {
+    
+                    while($livre = $req->fetch()) {
+                        echo '
+                            <div class="resultat-container">
+                                <div class="resultat-cover">
+                                    <img src="images/covers/'.$livre->image.'" alt="placeholder">
+                                </div>
+                                <div class="resultat-info">
+                                    <p class="resultat-title">'.$livre->titre.'</p>
+                                    <p class="resultat-parution">Année parution: <b>'.$livre->anneeparution.'</b></p>
+                                    <p class="resultat-resume-title">Résumé</p>
+                                    <p class="resultat-resume">
+                                        '.$livre->resume.'
+                                    </p>
+                                    <a href="detail.php?livre='.$livre->nolivre.'" class="resultat-more-button button-general">Voir plus</a>
+                                </div>
+                            </div>
+                        
+                        ';
+                    }
                 }
             }
-
-        
         ?>
+
     </div>
 
     <div class="retour-accueil">

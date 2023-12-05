@@ -8,12 +8,12 @@
     <?php
         session_start();
 
-        require("utilitaires/authentification.php");
+        
         if(!$_SESSION["adminUser"] || !isset($_SESSION["adminUser"])) {
             echo "Accès non autorisé."; // Refuse l'accès un utilisateur curieux, même si il requête l'API en POST 
             exit;
         }
-
+        require("utilitaires/authentification.php");
         require("utilitaires/admin-header.html");
 
         if(isset($_POST["noauteur"])){
@@ -23,7 +23,7 @@
             $ISBN13 = $_POST["ISBN13"];
             $annee_parution = $_POST["annee_parution"];
             $resume = $_POST["resume"];
-            $cover = $_POST["cover"];
+            $cover = $_FILES["cover"];
 
            try {
 
@@ -39,10 +39,12 @@
                 $req->bindValue(":annee_parution", $annee_parution);
                 $req->bindValue(":resume", $resume);
                 $req->bindValue(":dateajout", date("Y-m-d"));
-                $req->bindValue(":cover", $cover);
+                $req->bindValue(":cover", $cover['name']);
 
                 $req->execute();
                 $book_added = TRUE;
+
+                move_uploaded_file($cover['tmp_name'], "images/covers/".$cover['name']); // Ajouter la cover dans le dossier cover de images pour l'afficher sur le site.
 
            } catch(Exception $e) {
                 $erreur = $e;
@@ -56,7 +58,7 @@
         
         <h1 class="big-title">Ajouter un livre</h1>
 
-        <form method="post" class="form-admin">
+        <form method="post" class="form-admin" enctype="multipart/form-data">
             <label for="auteur">Auteur : </label>
             <?php
                     echo "<select name=\"noauteur\" id=\"auteur\" required>";

@@ -8,13 +8,13 @@
     <?php
         session_start();
 
-        require("utilitaires/authentification.php");
-
+        
         if(!$_SESSION["adminUser"] || !isset($_SESSION["adminUser"])) {
             echo "Accès non autorisé."; // Refuse l'accès un utilisateur curieux, même si il requête l'API en POST 
             exit;
         }
-
+        
+        require("utilitaires/authentification.php");
         require("utilitaires/admin-header.html");
 
         if(isset($_POST["email"])){
@@ -27,6 +27,8 @@
             $ville = $_POST["ville"];
             $codepostal = $_POST["codePostal"];
 
+            $mdp_hash = password_hash($mdp, PASSWORD_ARGON2I);
+
            try {
                 $req = $connexion->prepare("
                 INSERT INTO 
@@ -35,7 +37,7 @@
                 ");
 
                 $req->bindValue(":email", $email);
-                $req->bindValue(":mdp", $mdp);
+                $req->bindValue(":mdp", $mdp_hash);
                 $req->bindValue(":nom", $nom);
                 $req->bindValue(":prenom", $prenom);
                 $req->bindValue(":adresse", $adresse);

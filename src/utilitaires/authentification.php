@@ -17,15 +17,14 @@
     
             // Vérifier les identifiants renseignés.
             if(isset($_POST["email"])) {
-                $requete = $connexion->prepare("SELECT profil FROM utilisateur WHERE mel = :email AND motdepasse = :mdp");
+                $requete = $connexion->prepare("SELECT motdepasse,profil FROM utilisateur WHERE mel = :email");
                 $requete->bindValue(":email", $_POST["email"], PDO::PARAM_STR);
-                $requete->bindValue(":mdp", $_POST["mdp"], PDO::PARAM_STR);
                 $requete->execute();
                 $requete->setFetchMode(PDO::FETCH_OBJ);  
                 
                 $utilisateur = $requete->fetch();
     
-                if($utilisateur) { // Si ça correspond, l'utilisateur est connecté
+                if(password_verify($_POST["mdp"] ,$utilisateur->motdepasse)) { // Si ça correspond, l'utilisateur est connecté
                     $_SESSION["email"] = $_POST["email"];
                     $_SESSION["connected"] = TRUE; 
                     $_SESSION["panier"] = array();
@@ -60,7 +59,7 @@
                 $requete->execute();
                 $requete->setFetchMode(PDO::FETCH_OBJ);
                 $utilisateur = $requete->fetch();
-                echo '<p class="titre-form"> Bonjour '.$utilisateur->nom.' '.$utilisateur->prenom.'</p>';
+                echo '<p class="titre-form"> Bonjour, <br>'.$utilisateur->nom.' '.$utilisateur->prenom.'</p>';
                 echo '<p class="email-set">'.$utilisateur->mel.'</p>';
                 if($utilisateur->profil == "client"){
                     echo '<p class="adresse-set">'.$utilisateur->adresse.'</p>';

@@ -57,6 +57,7 @@ footer p {
 
 .retour-accueil{
     margin-top: 64px;
+    margin-bottom: 130px;
     color: rgba(0, 0, 0, 0.747);
     font-size: 15px;
     text-align: center;
@@ -170,6 +171,7 @@ footer p {
 .carousel-inner{
     width: 50em;
     margin: auto;
+    margin-bottom: 150px;
 }
 
 
@@ -195,7 +197,7 @@ footer p {
 
 .mobile-nav{
     position: fixed;
-    right: 0;
+    right: 5px;
     top: 50%;
     transform: translateY(-50%);
     height: 100%;
@@ -299,7 +301,63 @@ footer p {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column
+    flex-direction: column;
+    margin: 0 15px;
+}
+
+.resultat-container{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 15px;
+    background-color: #e0e0e0;
+    max-width: 42em;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
+    border: 2px solid rgba(0, 0, 0, 0.411);
+}
+
+.resultat-container p {
+    margin-bottom: 0;
+}
+
+.resultat-parution{
+    margin-bottom: 15px !important;
+    font-size: 15px;
+} 
+
+.resultat-cover img{
+    width: 10em;
+}
+
+.resultat-title{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.resultat-resume-title{
+    color: #2495C6;
+}
+
+.resultat-resume{
+    font-size: 15px;
+    font-weight: 300;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+
+}
+
+.resultat-more-button{
+    color: white;
+    border-radius: 50px;
+    padding: 5px 15px;
+    float: right;
+    font-size: 14px;
+    margin-top: 20px;
 }
 
 
@@ -403,7 +461,7 @@ footer p {
 
 
 
-@media screen and (max-width: 1136px) {
+@media screen and (max-width: 1250px) {
     .mobile-nav{
         right: -25em;
         background-color: white;
@@ -466,6 +524,15 @@ footer p {
 }
 
 @media screen and (max-width: 439px) {
+
+    .resultat-container{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .resultat-more-button{
+        float: left;
+    }
 
     .nosubmit{
         margin-bottom: 10px;

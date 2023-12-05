@@ -39,7 +39,7 @@
         
         
         
-        $req = $connexion->prepare("SELECT image FROM livre ORDER BY nolivre DESC LIMIT 2;");
+        $req = $connexion->prepare("SELECT image FROM livre ORDER BY dateajout DESC LIMIT 2;");
         $req->setFetchMode(PDO::FETCH_OBJ).
         $req->execute();
         
