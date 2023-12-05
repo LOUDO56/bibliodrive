@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 29 nov. 2023 à 17:45
+-- Généré le : mar. 05 déc. 2023 à 19:32
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -72,13 +72,6 @@ CREATE TABLE `emprunter` (
   `dateretour` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `emprunter`
---
-
-INSERT INTO `emprunter` (`mel`, `nolivre`, `dateemprunt`, `dateretour`) VALUES
-('jeankillian@hotmail.fr', 8, '2023-11-29', '2023-12-29');
-
 -- --------------------------------------------------------
 
 --
@@ -128,8 +121,8 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`mel`, `motdepasse`, `nom`, `prenom`, `adresse`, `ville`, `codepostal`, `profil`) VALUES
-('jeankillian@hotmail.fr', 'secretjean', 'Jean', 'Killian', '8 rue des morlades', 'morados', 41000, 'client'),
-('lucaslelouer@gmail.com', 'secretlucas', 'LE LOUER', 'Lucas', '4 rue des champignons', 'champiland', 25642, 'admin');
+('admin@admin.fr', '$argon2i$v=19$m=65536,t=4,p=1$eHVINndpWlNISWc1ZEc3bQ$rNKYtBTINQg6M/yc6DjQq4YWXmL7hMQUAacyMer7NWQ', 'Admin', 'Admin', 'Admin', 'Admin', 1, 'admin'),
+('client@client.fr', '$argon2i$v=19$m=65536,t=4,p=1$cUlvYVBORGFhNHJtSDVXQQ$0yANCQSec2sda3kVUhy+QG7KWuGt+85r70F6IKewfVc', 'Client', 'Client', 'Client', 'Client', 2, 'client');
 
 --
 -- Index pour les tables déchargées
