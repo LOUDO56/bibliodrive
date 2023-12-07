@@ -63,7 +63,7 @@
                                     <p class="resultat-resume">
                                         '.$livre->resume.'
                                     </p>
-                                    <a href="detail.php?livre='.$livre->nolivre.'" class="resultat-more-button button-general">Voir plus</a>
+                                    <a href="detail?livre='.$livre->nolivre.'" class="resultat-more-button button-general">Voir plus</a>
                                 </div>
                             </div>
                         
@@ -76,7 +76,7 @@
     </div>
 
     <div class="retour-accueil">
-        <a href="accueil.php">← Retour à l'accueil</a>
+        <a href="accueil">← Retour à l'accueil</a>
     </div>
 
     <footer>

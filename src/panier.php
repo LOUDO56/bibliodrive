@@ -60,7 +60,7 @@
                         while($panier_info = $req->fetch()){
                             echo '<div class="panier-info">';
                             echo "<p>".$panier_info->nom." ".$panier_info->prenom." - ".$panier_info->titre." (".$panier_info->anneeparution.")</p>";
-                            echo '<a href="utilitaires/panier_manager.php?retirer=true&nolivre='.$panier_info->nolivre.'&redirect=panier.php" class="button-general">Annuler</a>';
+                            echo '<a href="utilitaires/panier_manager?retirer=true&nolivre='.$panier_info->nolivre.'&redirect=panier.php" class="button-general">Annuler</a>';
                             echo '</div>';
                         }
     
@@ -83,7 +83,7 @@
     </div>
 
     <div class="retour-accueil">
-        <a href="accueil.php">← Retour à l'accueil</a>
+        <a href="accueil">← Retour à l'accueil</a>
     </div>
     <footer>
         <?php require('utilitaires/message_important.html')?>

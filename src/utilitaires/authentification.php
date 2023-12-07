@@ -47,7 +47,7 @@
                 
                 if($_SESSION["adminUser"]) { // Si l'utilisateur est un admin, on le redirige dans la page d'accueil pour éviter tout conflit.
                     $_SESSION["adminUser"] = FALSE;
-                    header("Location: accueil.php");
+                    header("Location: accueil");
                     exit;
                 }
                     

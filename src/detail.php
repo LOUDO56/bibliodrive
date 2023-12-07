@@ -39,7 +39,7 @@
     <div class="resume-container">
         <div>
             <div class="retour-detail">
-                <a href="<?php echo 'lister_livres.php?auteur='.$info_livre->nom.''?>">← Retour</a>
+                <a href="<?php echo 'lister_livres?auteur='.$info_livre->nom.''?>">← Retour</a>
             </div>
             <p><b>Auteur:</b> <?php echo $info_livre->nom . " " . $info_livre->prenom ;?></p>
             <p><b>ISBN13:</b> <?php echo $info_livre->isbn13;?></p>
@@ -90,9 +90,9 @@
                         } else {
                             if(!$emprute){
                                 if(in_array($_GET["livre"],$_SESSION["panier"])){
-                                    echo '<a href="utilitaires/panier_manager.php?retirer=true&nolivre='.$_GET["livre"].'&redirect=detail.php?livre='.$_GET["livre"].'" class="button-general retirer-panier">Retirer du panier</a>';
+                                    echo '<a href="utilitaires/panier_manager?retirer=true&nolivre='.$_GET["livre"].'&redirect=detail?livre='.$_GET["livre"].'" class="button-general retirer-panier">Retirer du panier</a>';
                                 } else {
-                                    echo '<a href="utilitaires/panier_manager.php?ajout=true&nolivre='.$_GET["livre"].'&redirect=detail.php?livre='.$_GET["livre"].'" class="button-general ajout-panier">Ajouter au panier</a>';
+                                    echo '<a href="utilitaires/panier_manager?ajout=true&nolivre='.$_GET["livre"].'&redirect=detail?livre='.$_GET["livre"].'" class="button-general ajout-panier">Ajouter au panier</a>';
                                 }
                             }
                         }
