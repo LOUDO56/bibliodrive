@@ -33,7 +33,7 @@ Voici à quoi ressemble mon site :
 
 1. Installer <a href="https://www.apachefriends.org/fr/index.html">XAMPP</a>
 2. Déplacer le projet dans C:/xampp/htdocs
-3. Lancer les services APACHE et XAMPP
-4. Aller sur `http://localhost/phpmyadmin`et créer la table "bibliodrive" et ensuite copier coller le script de `bibliodrive.sql` dans la rubrique SQL et executé le.
+3. Lancer les services APACHE et MYSQL
+4. Aller sur `http://localhost/phpmyadmin`, créer la table "bibliodrive" et ensuite copier coller le script de `bibliodrive.sql` dans la rubrique SQL et executé le.
 5. Aller sur votre navigateur et entrez le lien suivant `http://localhost/bibliodrive/src/accueil.php`
 6. Pour se connecter, des identifiants Admin et Client sont déjà à votre disposition (admin: email: admin@admin.fr, mdp: admin | client: email: client@client.fr, mdp: client)
