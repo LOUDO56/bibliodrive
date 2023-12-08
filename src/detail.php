@@ -85,14 +85,18 @@
 
                         if(isset($user_mel->mel) && $user_mel->mel == $_SESSION["email"]){
                             echo '<p>Déjà emprunté.</p>';
-                        } elseif($req->rowCount() == 5 || count($_SESSION["panier"]) == 5){ // Vérifier si la personne n'a pas plus de 5 emprunts
+                        } elseif($req->rowCount() == 5){ // Vérifier si la personne n'a pas plus de 5 emprunts
                             echo '<p>Vous avez 5 emprunts.</p>';
                         } else {
                             if(!$emprute){
                                 if(in_array($_GET["livre"],$_SESSION["panier"])){
                                     echo '<a href="utilitaires/panier_manager?retirer=true&nolivre='.$_GET["livre"].'&redirect=detail?livre='.$_GET["livre"].'" class="button-general retirer-panier">Retirer du panier</a>';
                                 } else {
-                                    echo '<a href="utilitaires/panier_manager?ajout=true&nolivre='.$_GET["livre"].'&redirect=detail?livre='.$_GET["livre"].'" class="button-general ajout-panier">Ajouter au panier</a>';
+                                    if((count($_SESSION["panier"]) + $req->rowCount()) == 5){
+                                        echo '<p>Vous ne pouvez plus ajouter de livres dans votre panier.<br>5 emprunts max. ('.$req->rowCount().' en cours).</p>';
+                                    } else {
+                                        echo '<a href="utilitaires/panier_manager?ajout=true&nolivre='.$_GET["livre"].'&redirect=detail?livre='.$_GET["livre"].'" class="button-general ajout-panier">Ajouter au panier</a>';
+                                    }
                                 }
                             }
                         }
