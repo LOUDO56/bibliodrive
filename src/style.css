@@ -54,25 +54,6 @@ footer p {
     font-weight: 300;
 }
 
-.retour-accueil{
-    margin-top: 64px;
-    margin-bottom: 130px;
-    color: rgba(0, 0, 0, 0.747);
-    font-size: 15px;
-    text-align: center;
-}
-
-.retour-accueil a {
-    color: black;
-    padding: 10px 20px;
-    border: solid 2px black;
-    transition: 200ms;
-}
-
-.retour-accueil a:hover{
-    opacity: 0.7;
-}
-
 .retour-detail{
     margin-bottom: 25px;
 }
@@ -535,6 +516,19 @@ footer p {
 
     .nosubmit{
         margin-bottom: 10px;
+    }
+
+}
+
+@media screen and (max-width: 366px) {
+
+    .hamburger-icon{
+        top: 8.5em;
+    }
+
+    .cross-mark{
+        top: 7.7em;
+        right: 8px;
     }
 
 }
