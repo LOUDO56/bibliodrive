@@ -23,7 +23,7 @@
         }
         else {
             $req = $connexion->prepare("
-            SELECT nom,prenom,isbn13,resume,image FROM livre
+            SELECT nolivre,nom,prenom,isbn13,resume,image FROM livre
             INNER JOIN auteur ON livre.noauteur = auteur.noauteur
             WHERE nolivre = :nolivre;
             ");
@@ -39,7 +39,7 @@
     <div class="resume-container">
         <div>
             <div class="retour-detail">
-                <a href="<?php echo 'lister_livres?auteur='.$info_livre->nom.''?>">← Retour</a>
+                <a href="<?php echo 'lister_livres?auteur='.$info_livre->nom.'#livre_'.$info_livre->nolivre?>">← Retour</a>
             </div>
             <p><b>Auteur:</b> <?php echo $info_livre->nom . " " . $info_livre->prenom ;?></p>
             <p><b>ISBN13:</b> <?php echo $info_livre->isbn13;?></p>
@@ -85,8 +85,8 @@
 
                         if(isset($user_mel->mel) && $user_mel->mel == $_SESSION["email"]){
                             echo '<p>Déjà emprunté.</p>';
-                        } elseif($req->rowCount() == 5){ // Vérifier si la personne n'a pas plus de 5 emprunts
-                            echo '<p>Vous avez plus de 5 emprunts.</p>';
+                        } elseif($req->rowCount() == 5 || count($_SESSION["panier"]) == 5){ // Vérifier si la personne n'a pas plus de 5 emprunts
+                            echo '<p>Vous avez 5 emprunts.</p>';
                         } else {
                             if(!$emprute){
                                 if(in_array($_GET["livre"],$_SESSION["panier"])){

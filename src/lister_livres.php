@@ -51,10 +51,15 @@
                 } else {
     
                     while($livre = $req->fetch()) {
+                        if(file_exists("images/covers/".$livre->image   )){
+                            $cover = $livre->image;
+                        } else {
+                            $cover = "book-cover-placeholder.png";
+                        }
                         echo '
-                            <div class="resultat-container">
+                            <div class="resultat-container" id="livre_'.$livre->nolivre.'">
                                 <div class="resultat-cover">
-                                    <img src="images/covers/'.$livre->image.'" alt="placeholder">
+                                    <img src="images/covers/'.$cover.'" alt="placeholder">
                                 </div>
                                 <div class="resultat-info">
                                     <p class="resultat-title">'.$livre->titre.'</p>

@@ -13,7 +13,7 @@
                 $req->setFetchMode(PDO::FETCH_OBJ);
                 $req->execute();
     
-                if($req->rowCount() < 5){ // Vérifier si la personne n'a pas plus de 5 emprunts
+                if($req->rowCount() < 5 || count($_SESSION["panier"]) < 5){ // Vérifier si la personne n'a pas plus de 5 emprunts
                     $req = $connexion->prepare("SELECT mel FROM emprunter WHERE nolivre = :nolivre");
                     $req->bindValue(":nolivre", $_REQUEST["nolivre"], PDO::PARAM_INT);
                     $req->execute();
