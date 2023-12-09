@@ -142,7 +142,7 @@ footer p {
 
 
 .carousel-item img {
-    max-width: 45%;
+    max-width: 40%;
     margin: 0 auto;
     height: auto;
     border: 2px solid black;
@@ -283,7 +283,7 @@ footer p {
     align-items: center;
     flex-direction: column;
     margin: 0 15px;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
 }
 
 .resultat-container{

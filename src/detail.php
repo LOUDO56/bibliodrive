@@ -38,9 +38,16 @@
 
     <div class="resume-container">
         <div>
-            <div class="retour-detail">
-                <a href="<?php echo 'lister_livres?auteur='.$info_livre->nom.'#livre_'.$info_livre->nolivre?>">← Retour</a>
-            </div>
+            <?php
+            
+                if(isset($_SESSION["search"])){
+                    echo '
+                    <div class="retour-detail">
+                        <a href="lister_livres?auteur='.$_SESSION["search"].'#livre_'.$info_livre->nolivre.'">← Retour</a>
+                    </div>
+                    ';
+                }
+            ?>
             <p><b>Auteur:</b> <?php echo $info_livre->nom . " " . $info_livre->prenom ;?></p>
             <p><b>ISBN13:</b> <?php echo $info_livre->isbn13;?></p>
             <p class="titre-resume">Résumé du livre</p>

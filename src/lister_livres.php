@@ -33,15 +33,20 @@
 
     <?php
             if(isset($auteur)){
-                
-                $req = $connexion->prepare("
-                    SELECT nolivre,image,anneeparution,resume,titre FROM livre
-                    INNER JOIN auteur ON livre.noauteur = auteur.noauteur
-                    WHERE nom = :auteur;
-                ");
-    
-                $req->bindValue(":auteur", $auteur);
-    
+                if($auteur === "*"){
+                    $req = $connexion->prepare("
+                        SELECT nolivre,image,anneeparution,resume,titre FROM livre
+                        INNER JOIN auteur ON livre.noauteur = auteur.noauteur
+                    ");
+                } else {
+                    $req = $connexion->prepare("
+                        SELECT nolivre,image,anneeparution,resume,titre FROM livre
+                        INNER JOIN auteur ON livre.noauteur = auteur.noauteur
+                        WHERE nom LIKE :auteur;
+                    ");
+                    $req->bindValue(":auteur", '%'.$auteur.'%');
+                }
+
                 $req->setFetchMode(PDO::FETCH_OBJ);
                 $req->execute();
     
@@ -49,7 +54,7 @@
                     echo "<p>Aucun Résultat.</p>";
     
                 } else {
-    
+                    $_SESSION["search"] = $auteur;
                     while($livre = $req->fetch()) {
                         if(file_exists("images/covers/".$livre->image   )){
                             $cover = $livre->image;
