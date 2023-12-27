@@ -1,17 +1,17 @@
-# bibliodrive
+## bibliodrive
 Un projet PHP fait durant ma première année d'étude en BTS SIO qui simule des empreints de livres.
 
-# Principe
+## Principe
 
 Une librairie ferme ses portes, mais pour pouvoir toujours emprunter des livres, on peut commander sur leur site Internet.
 
-# But
+## But
 
-Le but de ce projet et de conçevoir un site de A a Z avec le PHP pour nous se familiariser avec les base de données et le backend en général.
+Le but de ce projet est de conçevoir un site de A a Z avec le PHP pour nous se familiariser avec les base de données et le backend en général.
 
 J'ai suivi le cahier des charges donné par ma professeure. Donc, il se peut que la navigation ou des éléments ne soit pas très fluide pour un utilisateur. C'est normal, le but n'est pas de créer un site pour un client mais de nous entraînez à coder en PHP.
 
-# Preview
+## Preview
 
 Voici à quoi ressemble mon site :
 
@@ -29,7 +29,9 @@ Voici à quoi ressemble mon site :
 ### Panier
 ![image](https://github.com/LOUDO56/bibliodrive/assets/117168736/a44177c1-f75f-4f4b-9c96-6d14f60bc18f)
 
-# Faire fonctionne le projet
+## Faire fonctionner le projet
+
+### Option 1 - XAMPP Windows
 
 1. Installer <a href="https://www.apachefriends.org/fr/index.html">XAMPP</a>
 2. Déplacer le projet dans C:/xampp/htdocs
@@ -37,3 +39,15 @@ Voici à quoi ressemble mon site :
 4. Aller sur `http://localhost/phpmyadmin`, créer la table "bibliodrive" et ensuite copier coller le script de `bibliodrive.sql` dans la rubrique SQL et executé le.
 5. Aller sur votre navigateur et entrez le lien suivant `http://localhost/bibliodrive/src/accueil.php`
 6. Pour se connecter, des identifiants Admin et Client sont déjà à votre disposition (admin: email: admin@admin.fr, mdp: admin | client: email: client@client.fr, mdp: client)
+
+### Option 2 - Docker Windows
+
+Configuration Docker qui dispose de tous les élements nécessaire au bon fonctionnement du projet.
+
+1. Disposer du logiciel Docker Desktop et le démarrer
+2. Exécuter le fichier Docker-config/docker-compose.yml :
+    - Depuis le logiciel Docker Desktop
+    - Commande console: `docker compose -f "Docker-config\docker-compose.yml" up -d --build`
+    - IDE, extension Docker sur VSCode par exemple, il suffit alors de cliquer droit sur le fichier docker-compose et de sélectionner "Compose up"
+3. Accès au site : http://localhost/
+4. Accès à phpmyadmin : http://localhost:8081, user: root, pass: root

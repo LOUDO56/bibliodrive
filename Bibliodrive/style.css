@@ -1,7 +1,6 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap');
 
-:root{
+:root {
     --button-color: #1C7196;
 }
 
@@ -10,7 +9,7 @@ a {
     text-decoration: none;
 }
 
-.button-general{
+.button-general {
     border: none;
     color: white;
     padding: 5px 15px;
@@ -19,13 +18,14 @@ a {
     border-radius: 10px;
 }
 
-.panier:hover, .button-general:hover {
+.panier:hover,
+.button-general:hover {
     background-color: #258cb8;
     box-shadow: 0 0 50px #2eaae034;
 }
 
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -37,7 +37,7 @@ body {
     background-color: #F9F9F9;
 }
 
-footer{
+footer {
     position: fixed;
     bottom: 0;
     text-align: center;
@@ -54,11 +54,11 @@ footer p {
     font-weight: 300;
 }
 
-.retour-detail{
+.retour-detail {
     margin-bottom: 25px;
 }
 
-.retour-detail a{
+.retour-detail a {
     border-radius: 100px;
     background-color: #1e85b1;
     color: white;
@@ -69,7 +69,7 @@ footer p {
     transition: 200ms;
 }
 
-.retour-detail a:hover{
+.retour-detail a:hover {
     background-color: #1a749b;
 }
 
@@ -89,7 +89,7 @@ footer p {
     font-size: 14px;
 }
 
-.panier{
+.panier {
     margin-left: 20px;
     padding: 12px 20px;
     border: none;
@@ -100,7 +100,7 @@ footer p {
 }
 
 
-.admin-links{
+.admin-links {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -131,7 +131,7 @@ footer p {
 /* Accueil */
 
 
-.big-title{
+.big-title {
     font-size: 48px;
     color: #2495C6;
     text-align: center;
@@ -148,7 +148,7 @@ footer p {
     border: 2px solid black;
 }
 
-.carousel-inner{
+.carousel-inner {
     width: 50em;
     margin: auto;
     margin-bottom: 150px;
@@ -158,7 +158,7 @@ footer p {
 /* Login */
 
 
-.hamburger-icon{
+.hamburger-icon {
     visibility: hidden;
     width: 30px;
     position: absolute;
@@ -168,14 +168,14 @@ footer p {
 }
 
 
-.cross-mark{
+.cross-mark {
     visibility: hidden;
     position: absolute;
     top: 70px;
     right: 20px;
 }
 
-.mobile-nav{
+.mobile-nav {
     position: fixed;
     right: 5px;
     top: 50%;
@@ -186,11 +186,11 @@ footer p {
     z-index: 1;
 }
 
-.mobile-nav.active{
+.mobile-nav.active {
     right: 0;
 }
 
-.authen-container{
+.authen-container {
     padding: 30px 20px;
     border: 2px solid black;
     text-align: center;
@@ -199,53 +199,53 @@ footer p {
 }
 
 
-.form-login{
+.form-login {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 12px;
 }
 
-.form-login input:not(input[type="submit"]){
+.form-login input:not(input[type="submit"]) {
     font-size: 12px;
     font-weight: 300;
 }
 
 
-.form-login input{
+.form-login input {
     border-radius: 10px;
 }
 
-.titre-form{
+.titre-form {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 30px;     
+    margin-bottom: 30px;
 }
 
-.input-login{
+.input-login {
     background-color: #D9D9D9;
     border: none;
     padding: 8px 15px;
 }
 
-.submit-login{
+.submit-login {
     margin-top: 20px;
 }
 
-.erreur-connexion{
+.erreur-connexion {
     color: rgb(226, 97, 97);
     font-size: 13px;
     margin-bottom: 0 !important;
 }
 
-.admin-account{
+.admin-account {
     color: #cf3325;
 }
 
 
 /* Ajouter données admin */
 
-.form-admin{
+.form-admin {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -253,16 +253,17 @@ footer p {
     gap: 15px;
 }
 
-.form-admin input[type="submit"]{
+.form-admin input[type="submit"] {
     margin-top: 15px;
 }
 
 
-.form-admin textarea { 
-    vertical-align: top; 
+.form-admin textarea {
+    vertical-align: top;
 }
 
-.ajout_succes, .ajout_erreur{
+.ajout_succes,
+.ajout_erreur {
     text-align: center;
 }
 
@@ -286,7 +287,7 @@ footer p {
     margin-bottom: 70px;
 }
 
-.resultat-container{
+.resultat-container {
     display: flex;
     justify-content: center;
     gap: 25px;
@@ -303,25 +304,25 @@ footer p {
     margin-bottom: 0;
 }
 
-.resultat-parution{
+.resultat-parution {
     margin-bottom: 15px !important;
     font-size: 15px;
-} 
+}
 
-.resultat-cover img{
+.resultat-cover img {
     width: 10em;
 }
 
-.resultat-title{
+.resultat-title {
     font-size: 20px;
     font-weight: bold;
 }
 
-.resultat-resume-title{
+.resultat-resume-title {
     color: #2495C6;
 }
 
-.resultat-resume{
+.resultat-resume {
     font-size: 15px;
     font-weight: 300;
     text-overflow: ellipsis;
@@ -332,7 +333,7 @@ footer p {
 
 }
 
-.resultat-more-button{
+.resultat-more-button {
     color: white;
     border-radius: 50px;
     padding: 5px 15px;
@@ -345,7 +346,7 @@ footer p {
 /* Détail d'un livre */
 
 
-.resume-container{
+.resume-container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -357,27 +358,27 @@ footer p {
     font-size: 17px;
 }
 
-.bloc-resume{
+.bloc-resume {
     max-width: 30em;
     font-size: 15px;
 }
 
-.book-cover-img{
+.book-cover-img {
     max-width: 100%;
     width: 14em;
 }
 
-.titre-resume{
+.titre-resume {
     color: var(--button-color);
     font-weight: bold;
     font-size: 19px;
 }
 
-.available-state{
+.available-state {
     margin-bottom: 0 !important;
 }
 
-.info-commande{
+.info-commande {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -389,31 +390,32 @@ footer p {
     margin-bottom: 0;
 }
 
-.order-available, .order-unavailable{
+.order-available,
+.order-unavailable {
     font-weight: bold;
     margin-bottom: 0;
 }
 
-.order-available{
-    color: #3BAE46;  
+.order-available {
+    color: #3BAE46;
 }
 
-.order-unavailable{
+.order-unavailable {
     color: #c93a35;
 }
 
-.retirer-panier{
+.retirer-panier {
     background-color: #c93a35;
 }
 
-.retirer-panier:hover{
+.retirer-panier:hover {
     background-color: #992b27 !important;
 }
 
 
 /* Panier */
 
-.panier-container{
+.panier-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -422,28 +424,36 @@ footer p {
     gap: 20px;
 }
 
-.panier-info{
+.panier-info {
     display: flex;
     align-items: center;
     gap: 25px;
 }
 
-.panier-info p{
+.panier-info p {
     margin-bottom: 0;
 }
 
-.validate-button{
+.validate-button {
     background-color: #3BAE46;
 }
 
-.validate-button:hover{
+.validate-button:hover {
     background-color: #32993c;
 }
 
-
+.page_not_found {
+    text-align: center;
+    width: 1200px;
+    margin: auto;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 @media screen and (max-width: 1250px) {
-    .mobile-nav{
+    .mobile-nav {
         right: -25em;
         background-color: white;
         padding: 0 10px;
@@ -451,11 +461,12 @@ footer p {
         transition: 200ms;
     }
 
-    .hamburger-icon, .cross-mark{
+    .hamburger-icon,
+    .cross-mark {
         visibility: visible;
     }
 
-    .resume-container{
+    .resume-container {
         flex-direction: column-reverse;
         width: 100%;
         position: static;
@@ -465,7 +476,7 @@ footer p {
         padding: 0 10px;
     }
 
-    .book-cover-img{
+    .book-cover-img {
         max-width: 12em;
     }
 
@@ -474,31 +485,32 @@ footer p {
 
 @media screen and (max-width: 900px) {
 
-    .big-title{
+    .big-title {
         font-size: 38px;
     }
 
-    .carousel-inner{
+    .carousel-inner {
         width: 100%;
     }
+
     .carousel-item img {
         max-width: 15em;
         margin: 0 auto;
     }
 
-    footer{
+    footer {
         padding: 5px;
     }
 
-    footer p{
+    footer p {
         font-size: 12px;
     }
-    
-    .panier{
+
+    .panier {
         font-size: 15px;
     }
 
-    .panier-info{
+    .panier-info {
         padding: 0 10px;
     }
 
@@ -506,16 +518,16 @@ footer p {
 
 @media screen and (max-width: 439px) {
 
-    .resultat-container{
+    .resultat-container {
         flex-direction: column;
         align-items: center;
     }
 
-    .resultat-more-button{
+    .resultat-more-button {
         float: left;
     }
 
-    .nosubmit{
+    .nosubmit {
         margin-bottom: 10px;
     }
 
@@ -523,11 +535,11 @@ footer p {
 
 @media screen and (max-width: 366px) {
 
-    .hamburger-icon{
+    .hamburger-icon {
         top: 8.5em;
     }
 
-    .cross-mark{
+    .cross-mark {
         top: 7.7em;
         right: 8px;
     }
