@@ -85,11 +85,6 @@
                         $req->execute();
                         $user_mel = $req->fetch();
 
-                        $req = $connexion->prepare("SELECT mel FROM emprunter WHERE mel = :email");
-                        $req->bindValue(":email", $_SESSION["email"]);
-                        $req->execute();
-                        $emprunt_utilisateur = $req->fetch();
-
                         if(isset($user_mel->mel) && $user_mel->mel == $_SESSION["email"]){
                             echo '<p>Déjà emprunté.</p>';
                         } elseif($req->rowCount() == 5){ // Vérifier si la personne n'a pas plus de 5 emprunts

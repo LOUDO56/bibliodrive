@@ -23,16 +23,12 @@
                 $requete->setFetchMode(PDO::FETCH_OBJ);  
                 
                 $utilisateur = $requete->fetch();
-                if($utilisateur){
-                    if(password_verify($_POST["mdp"] ,$utilisateur->motdepasse)) { // Si ça correspond, l'utilisateur est connecté
-                        $_SESSION["email"] = $_POST["email"];
-                        $_SESSION["connected"] = TRUE; 
-                        $_SESSION["panier"] = array();
-                        if($utilisateur->profil == "admin") $_SESSION["adminUser"] = TRUE; //Si c'est un admin, attribuer le role admin.
-                }
-    
-    
-                } else{ // Sinon, on fait en sorte de lui faire savoir que son mail ou mdp est mauvais.
+                if($utilisateur && password_verify($_POST["mdp"] ,$utilisateur->motdepasse)){
+                    $_SESSION["email"] = $_POST["email"];
+                    $_SESSION["connected"] = TRUE; 
+                    $_SESSION["panier"] = array();
+                    if($utilisateur->profil == "admin") $_SESSION["adminUser"] = TRUE; //Si c'est un admin, attribuer le role admin.
+                } else {
                     $erreur_connexion = TRUE;
                     $email_renseigne = $_POST["email"];
                 }
