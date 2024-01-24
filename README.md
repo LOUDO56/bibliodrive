@@ -9,8 +9,6 @@ Une librairie ferme ses portes, mais pour pouvoir toujours emprunter des livres,
 
 Le but de ce projet et de conçevoir un site de A a Z avec le PHP pour nous se familiariser avec les base de données et le backend en général.
 
-J'ai suivi le cahier des charges donné par ma professeure. Donc, il se peut que la navigation ou des éléments ne soit pas très fluide pour un utilisateur. C'est normal, le but n'est pas de créer un site pour un client mais de nous entraînez à coder en PHP.
-
 # Preview
 
 Voici à quoi ressemble mon site :
